@@ -1,8 +1,11 @@
 package sit.int202.springmodule2.dto;
 
+import jakarta.validation.constraints.AssertFalse;
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class CustomerCreateDTO {
@@ -37,5 +40,14 @@ public class CustomerCreateDTO {
     @NotNull
     @NotBlank
     private String country;
+
+    private MultipartFile file;
+
+
+
+//    @AssertFalse(message = "Phone must be lower than 5")
+//    private boolean isValidPhone() {
+//        return phone.length() < 5;
+//    }
 
 }

@@ -1,6 +1,7 @@
 package sit.int202.springmodule2.controllers;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomerResponseDTO> findById(@PathVariable @Min(value =  10, message = "Id must be greater or equals to 10") Integer id) {
+    public ResponseEntity<CustomerResponseDTO> findById(@PathVariable @Max(value = 15) @Min(value =  10, message = "Id must be greater or equals to 10") Integer id) {
         var customer = service.findById(id);
 
         if (customer == null) {
